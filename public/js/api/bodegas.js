@@ -25,7 +25,7 @@ function getBodegas() {
         method: 'GET',
         success: function (data) {
             console.log('Bodegas:', data);
-            let html = '<option value="">Seleccione una opción</option>';
+            let html = '<option value=""></option>';
             for (const bodega of data) {
                 html += `<option value="${bodega.id}">${bodega.descripcion}</option>`;
             }

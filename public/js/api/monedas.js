@@ -6,7 +6,7 @@ function getMonedas() {
         method: 'GET',
         success: function (data) {
             console.log('Monedas:', data);
-            let html = '<option value="">Seleccione una opción</option>';
+            let html = '<option value=""></option>';
             for (const moneda of data) {
                 html += `<option value="${moneda.id}">${moneda.descripcion}</option>`;
             }

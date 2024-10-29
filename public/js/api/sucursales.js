@@ -6,7 +6,7 @@ function getSucursalesByBodegaId(id) {
         method: 'GET',
         success: function (data) {
             console.log('Sucursales:', data);
-            let html = '<option value="">Seleccione una opción</option>';
+            let html = '<option value=""></option>';
             for (const sucursal of data) {
                 html += `<option value="${sucursal.id}">${sucursal.descripcion}</option>`;
             }
