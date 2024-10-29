@@ -1,0 +1,80 @@
+@import 'grid.css';
+@import 'base.css';
+
+
+/* Estilos Tabla */
+.tabla {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+.tabla thead{
+	background-color: var(--color-gris-oscuro);
+	color: #FFF;
+}
+
+.tabla th, .tabla td {
+	padding: 4px 8px;
+	border:  2px solid var(--color-gris-oscuro);
+}
+
+/* Estilos Botones */
+.btnEnlace,
+.btnNuevo, 
+.btnGuardar,
+.btnEditar, 
+.btnEliminar {
+	color: #FFF;
+	border: none;
+	border-radius: 4px;
+	font-size: 16px;
+}
+
+.btnEnlace ,
+.btnNuevo {
+	background-color: var(--color-celeste);
+	padding: 10px 40px;
+}
+
+.btnEditar {
+	background-color: var(--color-gris);
+	padding: 6px 8px;
+}
+
+.btnGuardar {
+	background-color: var(--color-verde);
+	padding: 10px 40px;
+}
+
+.btnEliminar {
+	background-color: var(--color-rojo);
+	padding: 6px 11px;
+}
+
+/* Estilos Formulario */
+form {
+	border: 2px solid var(--color-gris-oscuro);
+	padding: 20px;
+	border-radius: 20px;
+}
+label, input[type="text"], select, textarea {
+	width: 100%;
+	margin-top: 10px;
+}
+
+input[type="text"], select, textarea {
+	font-family: Arial, sans-serif;
+	font-size: 14px;
+	border: 1px solid var(--color-gris);
+	border-radius: 4px;
+	padding: 8px 8px;
+}
+
+select {
+	padding: 7px 8px;
+}
+
+/* Estilos Responsive */
+@media only screen and (max-width: 768px) {
+
+}

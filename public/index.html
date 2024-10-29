@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio</title>
+    <link rel="stylesheet" href="/css/estilos.css" />
+    <script src="/js/ajax.js"></script>
+    <script src="/js/api/productos.js"></script>
+</head>
+<body>
+    <main class="contenido">
+        <h3>Lista de Productos</h3>
+        <div class="mt-2 mb-2 txt-right">
+            <a class="btnNuevo" href="/nuevo.html">Nuevo</a>
+        </div>
+        <table id="tableData" class="tabla">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Materiales</th>
+                    <th>Código</th>
+                    <th>Precio</th>
+                    <th>Bodega</th>
+                    <th>Sucursal</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </main>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        getProductos();
+    });
+    </script>
+</body>
+</html>

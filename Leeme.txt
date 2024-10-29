@@ -1,0 +1,26 @@
+# Clonar el repositorio
+git clone 
+
+# Crear una base de datos en MySQL
+- Para modificar los datos de conexión a la DB, modificar el archivo app/Config/Database.php
+    $host = 'localhost';
+    $db_name = 'prueba_desis';
+    $username = 'root';
+    $password = '';
+- Importar el archivo sql/prueba_desis.sql
+
+# Levantar el servidor localmente
+cd public
+php -S localhost:8000
+
+# Probar la aplicación en el navegador desde la siguiente URL
+localhost:8000
+
+# Herramientas
+Base de datos: MySQL 8
+PHP: 7.3+
+Apache: 2.4.46
+
+# Notas
+- Tener habilitado mod_rewrite
+- Puerto por defecto MySQL: 3306

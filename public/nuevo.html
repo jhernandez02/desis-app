@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuevo</title>
+    <link rel="stylesheet" href="/css/estilos.css" />
+</head>
+<body>
+    <main class="contenido">
+        <div class="mt-2 mb-2 txt-right">
+            <a class="btnEnlace" href="/index.html">Ir al Inicio</a>
+        </div>
+        <form id="formProducto">
+            <h1 class="txt-center">Formulario de Producto</h1>
+            <div class="row">
+                <div class="col-6">
+                    <label for="inputCodigo">Código</label>
+                    <input type="text" id="inputCodigo" />
+                </div>
+                <div class="col-6">
+                    <label for="inputNombre">Nombre</label>
+                    <input type="text" id="inputNombre" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <label for="inputBodega">Bodega</label>
+                    <select id="inputBodega"></select>
+                </div>
+                <div class="col-6">
+                    <label for="inputSucursal">Sucursal</label>
+                    <select id="inputSucursal">
+                        <option value=""></option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <label for="inputMoneda">Moneda</label>
+                    <select id="inputMoneda"></select>
+                </div>
+                <div class="col-6">
+                    <label for="inputPrecio">Precio</label>
+                    <input type="text" id="inputPrecio" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <label>Material del producto</label>
+                    <div id="materiales" class="mt-2"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <label for="inputDescripcion">Descripción</label>
+                    <textarea id="inputDescripcion"></textarea>
+                </div>
+            </div>
+            <div class="txt-center mt-2">
+                <button type="submit" class="btnGuardar">Guardar Producto</button>
+            </div>
+        </form>
+    </main>
+    <script src="/js/ajax.js"></script>
+    <script src="/js/api/bodegas.js"></script>
+    <script src="/js/api/sucursales.js"></script>
+    <script src="/js/api/monedas.js"></script>
+    <script src="/js/api/materiales.js"></script>
+    <script src="/js/api/productos.js"></script>
+    <script src="/js/validacion.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        getBodegas();
+        getMonedas();
+        getMateriales();
+    });
+
+    const bodegaElement = document.querySelector('#inputBodega');
+
+    bodegaElement.addEventListener('change', () => {
+        if(bodegaElement.value==''){
+            document.querySelector('#inputSucursal').innerHTML = '';
+        }else{
+            getSucursalesByBodegaId(bodegaElement.value);
+        }
+    });
+
+    async function envidarDatos(){
+        const datos = await validarDatos();
+        if(datos){
+            try {
+                const response = await createProducto(datos);
+                if(response.status=='ok'){
+                    limpiarFormulario();
+                }
+                alert(response.message);
+            } catch (error) {
+                console.error('Error:', error);
+                throw error;
+            }
+        }
+    }
+
+    document.querySelector('#formProducto').addEventListener('submit', (e) => {
+        e.preventDefault();
+        envidarDatos();
+    });
+    </script>
+</body>
+</html>
